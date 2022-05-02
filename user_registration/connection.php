@@ -19,7 +19,7 @@ $result=mysqli_query($conn, $checker);
 $num=mysqli_num_rows($result);
 if($num == 1){
 
-	echo "Username Already Taken";
+	echo "Username Already Taken.";
 }
 
 else{
