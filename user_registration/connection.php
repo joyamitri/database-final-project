@@ -13,7 +13,7 @@ $first_name=mysqli_real_escape_string($conn,$_POST['first_name']);
 $last_name=mysqli_real_escape_string($conn,$_POST['last_name']);
 $username=mysqli_real_escape_string($conn,$_POST['username']);
 $email=$_POST['email'];
-$password=password_hash(mysqli_real_escape_string($conn,$_POST['password']), PASSWORD_DEFAULT);
+$password=mysqli_real_escape_string($conn,$_POST['password']);
 $company_name=mysqli_real_escape_string($conn,$_POST['company_name']);
 $location=mysqli_real_escape_string($conn,$_POST['location']);
 
