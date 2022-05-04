@@ -26,7 +26,7 @@
 				<button type="submit" class="btn btn-primary btn-flat m-b-15">Submit</button>
 				<br /><br />
                  <div class="pull-left">
-                    <p>Back to <a href="../startup/index.html"> Home</a></p>
+                    <p>Back to <a href="../index.html"> Home</a></p>
                 </div>
 			</form>
 		</div>	
