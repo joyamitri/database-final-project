@@ -4,8 +4,9 @@ $conn = mysqli_connect('localhost', 'root', '');
 
 mysqli_select_db($conn, 'companydb');
 
-$username=$_POST['username'];
-$password=$_POST['password'];
+$username=mysqli_real_escape_string($conn,$_POST['username']);
+$password=mysqli_real_escape_string($conn,$_POST['password']);
+
 
 $checker = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 $result=mysqli_query($conn, $checker);
@@ -15,7 +16,7 @@ $num=mysqli_num_rows($result);
 
 if($num == 1){
 	$_SESSION['username']=$username;
-	header('location:../index.html');
+	header('location:../startup/index.html');
 }
 
 else{
