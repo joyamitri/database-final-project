@@ -6,7 +6,7 @@ $conn = mysqli_connect('localhost', 'root', '');
 mysqli_select_db($conn, 'companydb');
 
 $email=$_POST['email'];
-$password=password_hash($_POST['password'], PASSWORD_DEFAULT);
+$password=$_POST['password'];
 
 $checker = "SELECT * FROM users WHERE email='$email'";
 $result=mysqli_query($conn, $checker);
