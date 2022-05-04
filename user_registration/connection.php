@@ -14,6 +14,7 @@ $last_name=mysqli_real_escape_string($conn,$_POST['last_name']);
 $username=mysqli_real_escape_string($conn,$_POST['username']);
 $email=$_POST['email'];
 $password=mysqli_real_escape_string($conn,$_POST['password']);
+$hash = hash('sha256', $password);
 $company_name=mysqli_real_escape_string($conn,$_POST['company_name']);
 $location=mysqli_real_escape_string($conn,$_POST['location']);
 
@@ -39,7 +40,7 @@ else{
 
 		while($row=mysqli_fetch_row($res)){
 
-			$query="INSERT INTO `users`(`first_name`, `last_name`, `username`, `email`, `password`, `companies_id`, `user_types_id`) VALUES ('$first_name','$last_name','$username','$email','$password',$row[0], 1)";
+			$query="INSERT INTO `users`(`first_name`, `last_name`, `username`, `email`, `password`, `companies_id`, `user_types_id`) VALUES ('$first_name','$last_name','$username','$email','$hash',$row[0], 1)";
 
 			$insert=mysqli_query($conn,$query);
 
@@ -72,7 +73,7 @@ else{
 
     		while($row=mysqli_fetch_row($res)){
 
-    			$query="INSERT INTO `users`(`first_name`, `last_name`, `username`, `email`, `password`, `companies_id`, `user_types_id`) VALUES ('$first_name','$last_name','$username','$email','$password',$row[0], 1)";
+    			$query="INSERT INTO `users`(`first_name`, `last_name`, `username`, `email`, `password`, `companies_id`, `user_types_id`) VALUES ('$first_name','$last_name','$username','$email','$hash',$row[0], 1)";
 
     			$insert=mysqli_query($conn,$query);
 
