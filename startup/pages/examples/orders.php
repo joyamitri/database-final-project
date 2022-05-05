@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fuego | Project Detail</title>
+  <title>Fuego | New Orders</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,7 +30,6 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -106,9 +105,10 @@
                   <p>Orders Overview</p>
                 </a>
               </li>
+              
             </ul>
           </li>
-
+          
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
             <a href="../calendar.php" class="nav-link">
@@ -119,8 +119,6 @@
               </p>
             </a>
           </li>
-          
-          
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-book"></i>
@@ -144,11 +142,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/project-add.php" class="nav-link">
+                <a href="../examples/project-add.php" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Add</p>
                 </a>
-              </li>
               <li class="nav-item">
                 <a href="../examples/project-edit.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -156,13 +153,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/project-detail.php" class="nav-link active">
+                <a href="../examples/project-detail.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Project Detail</p>
                 </a>
               </li>
+              
             </ul>
-
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -195,12 +192,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Project Detail</h1>
+            <h1>New Order</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="../../index.php">Home</a></li>
-              <li class="breadcrumb-item active">Project Detail</li>
+              <li class="breadcrumb-item active"> New Order</li>
             </ol>
           </div>
         </div>
@@ -209,74 +206,47 @@
 
     <!-- Main content -->
     <section class="content">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">General</h3>
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Projects Detail</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-              <div class="row">
-                <div class="col-12 col-sm-4">
-                  <div class="info-box bg-light">
-                    <div class="info-box-content">
-                      <span class="info-box-text text-center text-muted">Estimated budget</span>
-                      <span class="info-box-number text-center text-muted mb-0">2300</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                  <div class="info-box bg-light">
-                    <div class="info-box-content">
-                      <span class="info-box-text text-center text-muted">Total amount spent</span>
-                      <span class="info-box-number text-center text-muted mb-0">2000</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-4">
-                  <div class="info-box bg-light">
-                    <div class="info-box-content">
-                      <span class="info-box-text text-center text-muted">Estimated project duration</span>
-                      <span class="info-box-number text-center text-muted mb-0">20</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-12">
-                </div>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
               </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> AdminLTE v3</h3>
-              <p class="text-muted">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
-              <br>
-              <div class="text-muted">
-                <p class="text-sm">Client Company
-                  <b class="d-block">Deveint Inc</b>
-                </p>
-                <p class="text-sm">Project Leader
-                  <b class="d-block">Tony Chicken</b>
-                </p>
-              </div>
+            <div class="card-body">
+              <form action="item-conn.php" method="POST">
+                <div class="form-group">
+                  <label for="inputName">Item Name</label>
+                  <input type="text" name = "item_name" id="inputName" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="inputStatus">Status</label>
+                  <select name = "status" id="inputStatus" class="form-control custom-select">
+                    <option selected disabled>Select one</option>
+                    <option>On Hold</option>
+                    <option>Loading</option>
+                    <option>Canceled</option>
+                    <option>Delivered</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputProjectLeader">Quantity</label>
+                  <input type = "number" name = "quantity" id="inputProjectLeader" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary float-right">Order</button> 
+              </form>
             </div>
+            <!-- /.card-body -->
           </div>
+          <!-- /.card -->
         </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-
+        
+      </div> 
     </section>
     <!-- /.content -->
   </div>
