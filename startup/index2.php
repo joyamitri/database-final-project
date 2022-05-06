@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?php
+  include('ind-conn.php');
+  ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Fuego |  Orders Overview</title>
@@ -64,7 +67,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
           <a class="d-block"> <?php
-                              session_start();
+                              
                               if(isset($_SESSION['username'])){
                                 $username = $_SESSION["username"];
                                 echo "<span> $username</span>";
@@ -234,6 +237,16 @@
                 </div>
               </div>
               <!-- /.card-header -->
+
+              <?php  
+              if(isset($_SESSION['row'])){
+
+                $res = $_SESSION['row'];
+
+
+              
+              ?>
+
               <div class="card-body p-0">
                 <div class="table-responsive">
                   <table class="table m-0">
@@ -246,15 +259,29 @@
                     </tr>
                     </thead>
                     <tbody>
+                      <?php 
+                      for($i=0; $i <count($res); $i++){
+
+
+
+                      ?>
                     <tr>
-                      <td>OR9842</td>
-                      <td>Masks</td>
-                      <td><span class="badge badge-success">Shipped</span></td>
+                      <td><?php echo "<span>" .$res[$i][0] . "</span>";?></td>
+                      <td><?php echo "<span>" .$res[$i][1] . "</span>";?></td>
+                      <td><span class="badge badge-success"><?php echo "<span>" .$res[$i][2] . "</span>";?></span></td>
                       <td>
-                        <div class="sparkbar" data-color="#00a65a" data-height="20">90</div>
+                        <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo "<span>" .$res[$i][0] . "</span>";?></div>
                       </td>
                     </tr>
-                    <tr>
+
+                    <?php 
+                      }
+
+                    ?>
+
+
+
+                    <!-- <tr>
                       <td>OR1848</a></td>
                       <td>Glass</td>
                       <td><span class="badge badge-warning">Pending</span></td>
@@ -285,12 +312,16 @@
                       <td>
                         <div class="sparkbar" data-color="#f39c12" data-height="20">50</div>
                       </td>
-                    </tr>
+                    </tr> -->
                     </tbody>
                   </table>
                 </div>
                 <!-- /.table-responsive -->
               </div>
+              <?php 
+                }
+
+              ?>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
                 <a href="pages/examples/orders.php" class="btn btn-sm btn-info float-left">Place New Order</a>

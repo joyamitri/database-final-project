@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <?php 
+  include('list.php');
+  ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fuego | Projects</title>
@@ -60,7 +64,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
           <a class="d-block"> <?php
-                              session_start();
+                              
                               if(isset($_SESSION['username'])){
                                 $username = $_SESSION["username"];
                                 echo "<span> $username</span>";
@@ -225,6 +229,15 @@
             </button>
           </div>
         </div>
+
+        <?php  
+          if(isset($_SESSION['row'])){
+
+            $res = $_SESSION['row'];
+
+
+              
+        ?>
         <div class="card-body p-0">
           <table class="table table-striped projects">
               <thead>
@@ -245,23 +258,27 @@
                   </tr>
               </thead>
               <tbody>
+
+                <?php 
+                  for($i=0; $i <count($res); $i++){
+
+
+
+                ?>
                   <tr>
                       <td>
                           #
                       </td>
                       <td>
                           <a>
-                              Project 1
+                            <?php echo "<span>" .$res[$i][1] . "</span>";?>
                           </a>
                           <br/>
-                          <small>
-                              Created 05.05.2022
-                          </small>
                       </td>
                       
                       
                       <td class="project-state">
-                          <span class="badge badge-success">Success</span>
+                          <span class="badge badge-success"><?php echo "<span>" .$res[$i][3] . "</span>";?></span>
                       </td>
                       <td class="project-actions text-right">
                           <a class="btn btn-primary btn-sm" href="project-detail.php">
@@ -273,7 +290,11 @@
                           
                       </td>
                   </tr>
-                  <tr>
+                  <?php 
+                      }
+
+                    ?>
+                  <!-- <tr>
                       <td>
                           #
                       </td>
@@ -355,10 +376,14 @@
                           
                           
                       </td>
-                  </tr>
+                  </tr> -->
               </tbody>
           </table>
         </div>
+        <?php 
+                }
+
+              ?>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->

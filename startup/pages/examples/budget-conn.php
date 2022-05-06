@@ -1,6 +1,6 @@
 <?php
 session_start();
-header('location:project-add.html');
+header('location:project-add.php');
 
 $conn = new mysqli('localhost', 'root', '', 'companydb');
 
